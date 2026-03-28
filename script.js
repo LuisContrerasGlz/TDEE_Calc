@@ -88,3 +88,78 @@ tdeeForm.addEventListener("submit", (event) => {
 
   resultSection.classList.remove("hidden");
 });
+
+function downloadAsText() {
+  const lines = [
+    "Resultados TDEE",
+    "================",
+    `BMR: ${bmrValue.textContent} kcal/día`,
+    `TDEE: ${tdeeValue.textContent} kcal/día`,
+    `Déficit 15%: ${cutValue.textContent} kcal/día`,
+    `Superávit 15%: ${bulkValue.textContent} kcal/día`,
+    "",
+    "Macros sugeridos",
+    `Proteína: ${proteinValue.textContent} g`,
+    `Grasa: ${fatValue.textContent} g`,
+    `Carbohidratos: ${carbValue.textContent} g`,
+    "",
+    "Datos ingresados",
+    `Edad: ${document.getElementById("age").value} años`,
+    `Peso: ${document.getElementById("weight").value} kg`,
+    `Altura: ${document.getElementById("height").value} cm`,
+    `Actividad: ${document.getElementById("activity").selectedOptions[0]?.text || "N/A"}`
+  ];
+
+  const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "tdee-resultados.txt";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
+function downloadResultTxt() {
+  if (resultSection.classList.contains("hidden")) {
+    errorMessage.textContent = "Calcula primero para descargar el resultado.";
+    return;
+  }
+
+  const lines = [
+    "Resultados TDEE",
+    "================",
+    `BMR: ${bmrValue.textContent} kcal/día`,
+    `TDEE: ${tdeeValue.textContent} kcal/día`,
+    `Déficit 15%: ${cutValue.textContent} kcal/día`,
+    `Superávit 15%: ${bulkValue.textContent} kcal/día`,
+    "",
+    "Macros sugeridos",
+    `Proteína: ${proteinValue.textContent} g`,
+    `Grasa: ${fatValue.textContent} g`,
+    `Carbohidratos: ${carbValue.textContent} g`,
+    "",
+    "Datos ingresados",
+    `Edad: ${document.getElementById("age").value} años`,
+    `Peso: ${document.getElementById("weight").value} kg`,
+    `Altura: ${document.getElementById("height").value} cm`,
+    `Actividad: ${document.getElementById("activity").selectedOptions[0]?.text || "N/A"}`
+  ];
+
+  const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "tdee-resultados.txt";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+  errorMessage.textContent = "";
+}
+
+const downloadPdfBtn = document.getElementById("downloadPdf");
+if (downloadPdfBtn) {
+  downloadPdfBtn.addEventListener("click", downloadResultTxt);
+}

@@ -1,0 +1,142 @@
+:root {
+  --bg: #f6f8fa;
+  --card: #ffffff;
+  --text: #222;
+  --muted: #56697a;
+  --blue: #0073e6;
+  --blue-dark: #005bb5;
+  --danger: #d93025;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #e6f0ff 0%, #f7f8fb 100%);
+}
+
+.app-container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.2rem;
+}
+
+.calculator-card {
+  width: min(760px, 100%);
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin: 1rem;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.95rem;
+}
+
+.header p {
+  margin: 0.25rem 0 1rem;
+  color: var(--muted);
+}
+
+.form-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.93rem;
+}
+.field span {
+  font-weight: 600;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  border: 1px solid #d8dee4;
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.96rem;
+}
+
+.field-group {
+  border: 1px solid #dce3ec;
+  border-radius: 8px;
+  padding: 0.75rem 0.8rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.96rem;
+}
+
+.field-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+.btn-calculate {
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-calculate:hover,
+.btn-calculate:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 115, 230, 0.35);
+}
+
+.error-message {
+  color: var(--danger);
+  min-height: 1.3rem;
+  font-size: 0.9rem;
+}
+
+.result {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f6f9ff;
+  border-radius: 10px;
+  border: 1px solid #d9e5ff;
+}
+
+.hidden {
+  display: none;
+}
+
+.results-list,
+.macros ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.results-list li,
+.macros li {
+  margin: 0.35rem 0;
+  font-size: 0.95rem;
+}
+
+.macros h3 {
+  margin: 1rem 0 0.4rem;
+  font-size: 1rem;
+}

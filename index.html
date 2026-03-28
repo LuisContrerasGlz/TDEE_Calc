@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora TDEE</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-container">
+    <section class="calculator-card">
+      <header class="header">
+        <h1>Calcula tu TDEE</h1>
+        <p>Metric system (kg, cm, years)</p>
+      </header>
+
+      <form id="tdeeForm" class="form-grid" novalidate>
+        <fieldset class="field-group">
+          <legend>Género</legend>
+          <label>
+            <input type="radio" name="gender" value="male" checked />
+            Masculino
+          </label>
+          <label>
+            <input type="radio" name="gender" value="female" />
+            Femenino
+          </label>
+        </fieldset>
+
+        <label class="field">
+          <span>Edad</span>
+          <input type="number" id="age" name="age" min="10" max="120" required />
+        </label>
+
+        <label class="field">
+          <span>Peso (kg)</span>
+          <input type="number" id="weight" name="weight" min="20" max="300" step="0.1" required />
+        </label>
+
+        <label class="field">
+          <span>Altura (cm)</span>
+          <input type="number" id="height" name="height" min="80" max="250" step="0.1" required />
+        </label>
+
+        <label class="field">
+          <span>Actividad</span>
+          <select id="activity" name="activity" required>
+            <option value="">Selecciona actividad</option>
+            <option value="1.2">Sedentario (poco o ningún ejercicio)</option>
+            <option value="1.375">Ligero (1-3 días/sem)</option>
+            <option value="1.55">Moderado (3-5 días/sem)</option>
+            <option value="1.725">Activo (6-7 días/sem)</option>
+            <option value="1.9">Muy activo (dos veces al día)</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>% Grasa corporal (opcional)</span>
+          <input type="number" id="bodyFat" name="bodyFat" min="3" max="60" step="0.1" />
+        </label>
+
+        <button type="submit" class="btn-calculate">Calcular</button>
+        <div id="errorMessage" class="error-message" aria-live="polite"></div>
+      </form>
+
+      <section id="resultSection" class="result hidden" aria-live="polite">
+        <h2>Resultados</h2>
+        <ul class="results-list">
+          <li><strong>BMR:</strong> <span id="bmrValue">--</span> kcal/día</li>
+          <li><strong>TDEE:</strong> <span id="tdeeValue">--</span> kcal/día</li>
+          <li><strong>Déficit 15%:</strong> <span id="cutValue">--</span> kcal/día</li>
+          <li><strong>Superávit 15%:</strong> <span id="bulkValue">--</span> kcal/día</li>
+        </ul>
+
+        <div class="macros">
+          <h3>Macros sugeridos</h3>
+          <ul>
+            <li>Proteína: <span id="proteinValue">--</span> g</li>
+            <li>Grasa: <span id="fatValue">--</span> g</li>
+            <li>Carbohidratos: <span id="carbValue">--</span> g</li>
+          </ul>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

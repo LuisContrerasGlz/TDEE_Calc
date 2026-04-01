@@ -42,5 +42,8 @@ This is a simple front-end application built using:
 
 All calculations are estimates based on standard formulas and should be used as a reference, not as a substitute for professional medical or nutritional advice.
 
+**GitHub Pages:**  
+https://luiscontrerasglz.github.io/TDEE_Calc/
+
 
 ![Gameplay del juego](./assets/calc.png)

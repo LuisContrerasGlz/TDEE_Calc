@@ -41,3 +41,6 @@ This is a simple front-end application built using:
 ## Notes
 
 All calculations are estimates based on standard formulas and should be used as a reference, not as a substitute for professional medical or nutritional advice.
+
+
+![Gameplay del juego](./assets/calc.png)

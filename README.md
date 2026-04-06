@@ -46,4 +46,4 @@ All calculations are estimates based on standard formulas and should be used as 
 https://luiscontrerasglz.github.io/TDEE_Calc/
 
 
-![Gameplay del juego](./assets/calc.png)
+![Working app image](./assets/calc.png)
